@@ -17,7 +17,7 @@
 			<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
 				<ol class="breadcrumb">
 					<li><a href="/board/list">Free Board</a></li>
-					<li class="active">글쓰기</li>
+					<li class="active">수정 및 삭제</li>
 				</ol>
 			</div>
 			<!-- /.col-lg-12 -->
@@ -26,38 +26,55 @@
 		<div class="row">
 			<div class="col-sm-20">
 				<div class="white-box">
-					<h3 class="box-title">글쓰기</h3>
-					<p class="text-muted">작성하고 싶은 글을 자유롭게 적어주세요.</p>
+					<h3 class="box-title">수정 및 삭제</h3>
+					<p class="text-muted">작성된 글을 수정 또는 삭제합니다.</p>
 					<div class="col-sm-20">
 						<div class="white-box">
-							<form id="registerForm" class="form-horizontal form-material" method="post">
+
+							<form id='modifyForm' class="form-horizontal form-material"
+								action="/board/modify" method="post">
 								<div class="form-group">
 									<label class="col-md-20">Title</label>
 									<div class="col-md-20">
-										<input type="text" placeholder="제목을 입력하세요."
-											class="form-control form-control-line" name="title">
+										<input type="text" class="form-control form-control-line"
+											name='title' value='<c:out value="${board.title}"/>'>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-md-20">Writer</label>
 									<div class="col-md-20">
-										<input type="text" placeholder="작성자를 입력하세요."
-											class="form-control form-control-line" name="writer">
+										<input type="text" class="form-control form-control-line"
+											name='writer' value='<c:out value="${board.writer}"/>'
+											readonly="readonly">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-20">Created Date</label>
+									<div class="col-md-20">
+										<fmt:formatDate var="formatDate" value="${board.regdate}"
+											pattern="yyyy년 MM월 dd일 HH시 mm분 ss초" />
+										<input type="text" class="form-control form-control-line"
+											readonly="readonly" value="${formatDate}">
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-md-20">Content</label>
 									<div class="col-md-20">
-										<textarea rows="20" class="form-control form-control-line" name="content"></textarea>
+										<textarea rows="20" class="form-control form-control-line"
+											name='content'><c:out value="${board.content}" /></textarea>
 									</div>
 								</div>
-								</form>
-								
-								<form action="/board/list">
+
+								<input type='hidden' name='bno' value='${board.bno}'>
+							</form>
+
+							<form id='actionForm' action="/board/list">
 								<div class="form-group">
 									<div class="col-sm-20">
-										<button id="register" class="btn btn-primary">작성완료</button>
-										<button id="cancle" class="btn btn-danger">돌아가기</button>
+										<input type='hidden' name='bno' value='${board.bno}'>
+										<button id="modify" class="btn btn-success">수정완료</button>
+										<button id="remove" class="btn btn-danger">삭제하기</button>
+										<button id="cancle" class="btn btn-primary">돌아가기</button>
 									</div>
 								</div>
 							</form>

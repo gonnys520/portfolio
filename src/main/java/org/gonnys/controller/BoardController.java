@@ -5,6 +5,7 @@ import org.gonnys.service.BoardService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,11 +48,22 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
-	//Get Read
-	@GetMapping("/read")
+	//Get Read, modify
+	@GetMapping({"/read", "/modify"})
 	public void read(@RequestParam("bno") int bno, Model model) {
 		log.info( service.read(bno));
+		log.info( "get read or modify");
 		model.addAttribute("board", service.read(bno));
+	}
+	
+	//Post Modify
+	@PostMapping("/modify")
+	public String modifyPOST(BoardVO board, RedirectAttributes redirect) {
+		
+		log.info("post modify............");
+		redirect.addFlashAttribute("result", service.modify(board));
+		
+		return "redirect:/board/read/bno=" + board.getBno();
 	}
 	
 	//Post Remove
@@ -63,21 +75,7 @@ public class BoardController {
 		
 		return "redirect:/board/list";
 	}
-	
-	//Get Modify
-	@GetMapping("/modify")
-	public void modifyGET() {
 		
-	}
-	
-	//Post Modify
-	@PostMapping("/modify")
-	public String modifyPOST(BoardVO board, RedirectAttributes redirect) {
-		
-		redirect.addFlashAttribute("result", service.modify(board) ==1?"SUCCESS":"FAIL");
-		
-		return "redirect:/board/read/bno=" + board.getBno();
-	}
-	
+
 
 }

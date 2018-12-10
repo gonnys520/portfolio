@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../resources/plugins/images/favicon.png">
     <title>Gonnys Web Page</title>
     <!-- Bootstrap Core CSS -->
     <link href="../resources/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -31,6 +31,11 @@
 	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 	crossorigin="anonymous">
 </script>
+
+<script src="../resources/board/list.js"></script>
+<script src="../resources/board/read.js"></script>
+<script src="../resources/board/modify.js"></script>
+<script src="../resources/board/register.js"></script>
 </head>
 
 <body>

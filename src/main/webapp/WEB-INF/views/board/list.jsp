@@ -6,7 +6,6 @@
 <!DOCTYPE html>
 
 <%@include file="../includes/header.jsp"%>
-<script src="../resources/board/list.js"></script>
 
 
 <!-- Page Content -->

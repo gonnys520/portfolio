@@ -6,8 +6,6 @@
 <!DOCTYPE html>
 
 <%@include file="../includes/header.jsp"%>
-<script src="../resources/board/read.js"></script>
-<script src="../resources/board/list.js"></script>
 
 <!-- Page Content -->
 <div id="page-wrapper">
@@ -52,9 +50,10 @@
 								<div class="form-group">
 									<label class="col-md-20">Created Date</label>
 									<div class="col-md-20">
+									 <fmt:formatDate var="formatDate" value="${board.regdate}"
+												pattern="yyyy년 MM월 dd일 HH시 mm분"/>
 										<input type="text" class="form-control form-control-line"
-											name='regdate' value='<c:out value="${board.regdate}"/>'
-											readonly="readonly">
+											readonly="readonly" value="${formatDate}">
 									</div>
 								</div>
 								<div class="form-group">
@@ -66,11 +65,12 @@
 								</div>
 							</form>
 
-							<form action="/board/list">
+							<form id='actionForm' action="/board/list">
 								<div class="form-group">
 									<div class="col-sm-20">
+									<input type='hidden' name='bno' value='${board.bno}'>
 										<button id="modify" class="btn btn-primary">수정 및 삭제</button>
-										<button id="cancle" class="btn btn-danger">돌아가기</button>
+										<button class="btn btn-danger">돌아가기</button>
 									</div>
 								</div>
 							</form>
