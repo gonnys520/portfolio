@@ -75,9 +75,9 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"
           aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">COMMENT</h4>
+        <h4 class="modal-title" id="myModalLabel">ALERT</h4>
       </div>
-      <div class="modal-body">처리가 완료되었습니다.</div>
+      <div class="modal-body"></div>
       <div class="modal-footer">
             <button type="button" class="btn btn-warning" data-dismiss="modal">확인</button>
     <!-- /.modal-content -->
@@ -99,34 +99,22 @@
 
 $(document).ready(function() {
 	
+	// POST register, modify modal
 	var result = '<c:out value="${result}"/>';
-	
-
-	//get read call
-	$('.board').on("click", function(e) {
-		e.preventDefault();
-		var bno = $(this).attr('href');
-	})
-
-
 	
 	checkModal(result);
 	
 	function checkModal(result){
-		
 		console.log(result);
 		
 		if (result === ''){
-			
 			return;
 		}
 		
-		if (result >0) {
-			
-			$(".modal-body").html("게시글이 등록되었습니다.");
+		if (result > 0) {
+			$(".modal-body").html("작업이 성공적으로 완료되었습니다.");
 			$("#myModal").modal("show");
 		}
-		
 
 	}
 });

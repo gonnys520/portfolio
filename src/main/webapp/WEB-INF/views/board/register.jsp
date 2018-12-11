@@ -30,7 +30,9 @@
 					<p class="text-muted">작성하고 싶은 글을 자유롭게 적어주세요.</p>
 					<div class="col-sm-20">
 						<div class="white-box">
-							<form id="registerForm" class="form-horizontal form-material" method="post">
+						
+							<form id="registerForm" class="form-horizontal form-material" 
+							action="/board/register" method="post">
 								<div class="form-group">
 									<label class="col-md-20">Title</label>
 									<div class="col-md-20">
@@ -53,7 +55,7 @@
 								</div>
 								</form>
 								
-								<form action="/board/list">
+								<form id='actionForm' action="/board/list">
 								<div class="form-group">
 									<div class="col-sm-20">
 										<button id="register" class="btn btn-primary">작성완료</button>

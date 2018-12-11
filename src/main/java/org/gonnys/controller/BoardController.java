@@ -41,10 +41,7 @@ public class BoardController {
 	@PostMapping("/register")
 	public String registerPOST(BoardVO board, RedirectAttributes redirect) {
 		
-		
 		redirect.addFlashAttribute("result", service.register(board));
-		
-		log.info("POST REGISTER : " + service.register(board));
 		
 		return "redirect:/board/list";
 		
@@ -71,12 +68,11 @@ public class BoardController {
 	
 	//Post Remove
 	@PostMapping("/remove")
-	public String remove(@RequestParam("bno") int bno, RedirectAttributes redirect) {
+	public String remove(BoardVO board, RedirectAttributes redirect) {
 		 
-		int count = service.remove(bno);
-		redirect.addFlashAttribute("result", count ==1? "success" : "fail");
+		redirect.addFlashAttribute("result", service.remove(board));
 		
-		log.info("POST REMOVE");
+		log.info("post remove..........");
 		
 		return "redirect:/board/list";
 	}

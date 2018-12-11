@@ -66,7 +66,7 @@ public class BoardServiceTests {
 	@Test
 	public void testRemove() {
 		
-		log.info(service.remove(2));
+//		log.info(service.remove(2));
 	}
 	
 }

@@ -52,8 +52,8 @@ public class BoardMapperTests {
 	@Test
 	public void testRemove() {
 		
-	Integer result = mapper.remove(1);
-		log.info("SUCCESS DELETE CNT: " + result);
+//	Integer result = mapper.remove(1);
+//		log.info("SUCCESS DELETE CNT: " + result);
 	}
 	
 	@Test

@@ -33,6 +33,7 @@
 
 							<form id='modifyForm' class="form-horizontal form-material"
 								action="/board/modify" method="post">
+							<input type='hidden' name='bno' value='${board.bno}'>
 								<div class="form-group">
 									<label class="col-md-20">Title</label>
 									<div class="col-md-20">
@@ -65,7 +66,7 @@
 									</div>
 								</div>
 
-								<input type='hidden' name='bno' value='${board.bno}'>
+
 							</form>
 							<form id='actionForm' action="/board/list">
 								<div class="form-group">

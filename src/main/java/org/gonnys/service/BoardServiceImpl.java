@@ -24,7 +24,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public int register(BoardVO board) {
-		log.info("Register.........." + board);
+		log.info("Register..........");
 		return mapper.register(board);
 	}
 
@@ -35,9 +35,9 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int remove(int bno) {
-		log.info("remove........" + bno);
-		return mapper.remove(bno);
+	public int remove(BoardVO board) {
+		log.info("remove........" + board);
+		return mapper.remove(board);
 	}
 
 	@Override

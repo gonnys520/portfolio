@@ -4,14 +4,12 @@ $(document).ready(function() {
 		
 		$('#modify').on("click", function(e) {
 			console.log("modify btn click.........");
-			e.stopPropagation();
 			e.preventDefault();
-			
 
 			$("#modifyForm").submit();
 			
-
 		})
+		
 		
 		$('#remove').on("click", function(e) {
 			e.preventDefault();
