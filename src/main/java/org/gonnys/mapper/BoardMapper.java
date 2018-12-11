@@ -11,7 +11,7 @@ public interface BoardMapper {
 	public List<BoardVO> getList();
 	
 	//register
-	public void register(BoardVO board);
+	public int register(BoardVO board);
 	
 	//read
 	public BoardVO read(int bno);

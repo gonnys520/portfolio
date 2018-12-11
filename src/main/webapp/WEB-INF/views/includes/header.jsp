@@ -31,12 +31,15 @@
 	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 	crossorigin="anonymous">
 </script>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <script src="../resources/board/list.js"></script>
 <script src="../resources/board/read.js"></script>
 <script src="../resources/board/modify.js"></script>
 <script src="../resources/board/register.js"></script>
 </head>
+
 
 <body>
     <!-- Preloader -->
@@ -58,7 +61,7 @@
                 </ul>
                 <ul class="nav navbar-top-links navbar-right pull-right">
                     <li>
-                        <a class="profile-pic" href="#"> <img src="../resources/plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Steave</b> </a>
+                        <a class="profile-pic" href="#"> <img src="../resources/plugins/images/users/gonnys.jfif" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">gonnys</b> </a>
                     </li>
                 </ul>
             </div>

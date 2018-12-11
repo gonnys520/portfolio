@@ -67,7 +67,6 @@
 
 								<input type='hidden' name='bno' value='${board.bno}'>
 							</form>
-
 							<form id='actionForm' action="/board/list">
 								<div class="form-group">
 									<div class="col-sm-20">

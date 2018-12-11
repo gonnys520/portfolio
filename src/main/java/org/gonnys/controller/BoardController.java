@@ -5,7 +5,6 @@ import org.gonnys.service.BoardService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,10 +41,14 @@ public class BoardController {
 	@PostMapping("/register")
 	public String registerPOST(BoardVO board, RedirectAttributes redirect) {
 		
-		service.register(board);
-		redirect.addFlashAttribute("result", board.getBno());
+		
+		redirect.addFlashAttribute("result", service.register(board));
+		
+		log.info("POST REGISTER : " + service.register(board));
 		
 		return "redirect:/board/list";
+		
+
 	}
 	
 	//Get Read, modify
@@ -63,15 +66,17 @@ public class BoardController {
 		log.info("post modify............");
 		redirect.addFlashAttribute("result", service.modify(board));
 		
-		return "redirect:/board/read/bno=" + board.getBno();
+		return "redirect:/board/read?bno=" + board.getBno();
 	}
 	
 	//Post Remove
 	@PostMapping("/remove")
 	public String remove(@RequestParam("bno") int bno, RedirectAttributes redirect) {
 		 
-		service.remove(bno);
-		redirect.addFlashAttribute("result", "success");
+		int count = service.remove(bno);
+		redirect.addFlashAttribute("result", count ==1? "success" : "fail");
+		
+		log.info("POST REMOVE");
 		
 		return "redirect:/board/list";
 	}

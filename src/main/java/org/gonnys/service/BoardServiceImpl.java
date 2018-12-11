@@ -4,11 +4,9 @@ import java.util.List;
 
 import org.gonnys.domain.BoardVO;
 import org.gonnys.mapper.BoardMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
-import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
 @AllArgsConstructor
@@ -25,9 +23,9 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public void register(BoardVO board) {
-		log.info("Write.........." + board);
-		mapper.register(board);
+	public int register(BoardVO board) {
+		log.info("Register.........." + board);
+		return mapper.register(board);
 	}
 
 	@Override

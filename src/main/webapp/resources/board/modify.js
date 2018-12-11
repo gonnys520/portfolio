@@ -4,12 +4,12 @@ $(document).ready(function() {
 		
 		$('#modify').on("click", function(e) {
 			console.log("modify btn click.........");
-			
+			e.stopPropagation();
 			e.preventDefault();
-			$("#modifyForm")
-			.attr("action","/board/modify")
-			.attr("method", "post")
-			.submit();
+			
+
+			$("#modifyForm").submit();
+			
 
 		})
 		
@@ -20,7 +20,8 @@ $(document).ready(function() {
 			
 			$("#actionForm")
 			.attr("method",'post')
-			.attr("action",'/board/remove').submit();
+			.attr("action",'/board/remove')
+			.submit();
 			
 		})
 		
